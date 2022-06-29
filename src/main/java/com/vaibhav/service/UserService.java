@@ -1,38 +1,49 @@
 package com.vaibhav.service;
 
-import org.modelmapper.ModelMapper;
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import com.vaibhav.dto.ApplicationDto;
 import com.vaibhav.dto.LoginDto;
-import com.vaibhav.dto.RegistrationDto;
+import com.vaibhav.dto.UpdatePassword;
+import com.vaibhav.dto.UserResponseDto;
+import com.vaibhav.dto.ApplicantResponseDto;
 import com.vaibhav.entity.Users;
-import com.vaibhav.repo.UserRepo;
 
 @Service
-public class UserService {
+public interface UserService {
 
-	@Autowired
-	UserRepo repo;
+	public ResponseEntity<UserResponseDto> userLogin(LoginDto login);
 
-	public String userLogin(LoginDto login) {
-		if (login == null)
-			return "Fill the values !";
-		String email = login.getEmail();
-		Users findByEmail = repo.findByEmail(email);
-		if (findByEmail != null)
-			return "Welcome " + findByEmail.getFirstName();
-		return "You are not an authorized user !";
-	}
+	public ResponseEntity<UserResponseDto> registerUser(UserResponseDto registration);
 
-	public String registerUser(RegistrationDto registration) {
-		if(registration == null)
-			return "Enter the values properly";
-		ModelMapper mapper = new ModelMapper();
-		Users registerToUsersObject = mapper.map(registration, Users.class);		
-		Users registeredUser = repo.save(registerToUsersObject);
-		return "Welcome to the Patient Assitant, "+registeredUser.getFirstName();
-	}
+	public Boolean forgotPassword(String email);
+	
+	public String readEmailToUnlockAccount(Users users);
+	
+	public String generateRandomPassword(int length);
 
+	public ResponseEntity<List<UserResponseDto>> getAllUsers();
+
+	public ResponseEntity<String> deleteUserById(Long id);
+
+	public ResponseEntity<ApplicationDto> registerApplication(ApplicationDto applicationDto);
+
+	public ResponseEntity<ApplicationDto> getApplicationById(Long id);
+
+	public ResponseEntity<List<ApplicationDto>> getAllApplications();
+
+	public ResponseEntity<ApplicationDto> updateApplication(ApplicationDto applicationRegistrationDto);
+
+	public ResponseEntity<String> deleteApplicationById(Long id);
+
+	public ResponseEntity<UserResponseDto> getUserById(Long id);
+
+	public ResponseEntity<UserResponseDto> updateUser(ApplicantResponseDto userResponseDto);
+
+	public boolean findByEmail(String email);
+
+	public ResponseEntity<UpdatePassword> updatePassword(UpdatePassword updatePassword);
 }

@@ -7,9 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
-public class LoginDto {
+public class SnapDto {
 	
-	private String email;
-	private String password;
+	private Long caseID;
+	private String firstName;
+	private String lastName;
+	private Long income;
+	private Long otherIncome; 
+
 }

@@ -1,0 +1,29 @@
+package com.ed.rules;
+
+import com.vaibhav.bindings.PlanInfo;
+import com.vaibhav.bindings.UserInfo;
+
+rule "Snap Plan Rules For AP"
+
+	when
+		userInfo: UserInfo(isEmployed=='N')
+	then
+		PlanInfo planInfo = new PlanInfo();
+		planInfo.setPlanName("SNAP");
+		planInfo.setPlanStatus("AP");
+		planInfo.setPlanStartDate("04-10-2020");
+		planInfo.setPlanEndDate("04-12-2020");
+		planInfo.setBenefitAmt("$300.00");
+		userInfo.setPlanInfo(planInfo);
+	end
+
+rule "Snap Plan Rules For DN"
+	when
+		userInfo: UserInfo(isEmployed=='Y')
+	then
+		PlanInfo planInfo = new PlanInfo();
+		planInfo.setPlanName("SNAP");
+		planInfo.setPlanStatus("DN");
+		planInfo.setDenialReason("High Income");
+		userInfo.setPlanInfo(planInfo);
+	end

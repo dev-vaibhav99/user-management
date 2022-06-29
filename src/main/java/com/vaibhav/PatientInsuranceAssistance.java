@@ -4,10 +4,9 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class UserModuleApplication {
+public class PatientInsuranceAssistance {
 
 	public static void main(String[] args) {
-		SpringApplication.run(UserModuleApplication.class, args);
+		SpringApplication.run(PatientInsuranceAssistance.class, args);
 	}
-
 }
