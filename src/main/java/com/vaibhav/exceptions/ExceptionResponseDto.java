@@ -23,5 +23,4 @@ public class ExceptionResponseDto {
 	
 	@JsonFormat(pattern="dd-MM-yyyy HH:mm:ss")
 	private Date timeStamp;
-
 }

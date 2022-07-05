@@ -4,7 +4,9 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Component;
 
@@ -18,15 +20,13 @@ public class EmailUtils {
 	@Autowired
 	private JavaMailSender mailSender;
 
-//	@Bean
-//    public JavaMailSenderImpl mailSender() {
-//        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
-//        javaMailSender.setHost("smtp.gmail.com");
-//        javaMailSender.setPort(25);
-//        
-//       
-//        return javaMailSender;
-//    }
+	@Bean
+    public JavaMailSenderImpl mailSender() {
+        JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
+        javaMailSender.setHost("smtp.gmail.com");
+        javaMailSender.setPort(25);
+        return javaMailSender;
+    }
 	
 	public boolean sendEmail(String to, String subject, String body) {
 
