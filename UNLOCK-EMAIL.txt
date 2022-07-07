@@ -1,10 +1,17 @@
 Hi {firstName},
+<br/>
 
-Welcome to IES. Your registration is almost completed.
-Please use these details mentioned below to unlock your account.
+Welcome to IES <br/> 
+Your registration is almost completed.
+Please use below details to unlock your account.
+<br/><br/>
+Username: {email}<br/> 
+Temporary Password : {temp-pwd}<br/>
+<br/>
 
-Username: {email} 
-Temporary Password: {temp-pwd} 
+<a href='http://localhost:4200/unlockAcc?email={email}'>
+Click Here To Unlock Your Account</a> <br/>
+<br/>
 
-Thanks & Regards, 
-Career Infotech Pvt. Ltd.
+Thanks & Regards,<br/>
+Career Infotech.<br/>

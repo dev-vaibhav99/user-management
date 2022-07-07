@@ -4,7 +4,6 @@ import javax.mail.MessagingException;
 import javax.mail.internet.MimeMessage;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.JavaMailSenderImpl;
 import org.springframework.mail.javamail.MimeMessageHelper;
@@ -20,11 +19,10 @@ public class EmailUtils {
 	@Autowired
 	private JavaMailSender mailSender;
 
-	@Bean
     public JavaMailSenderImpl mailSender() {
         JavaMailSenderImpl javaMailSender = new JavaMailSenderImpl();
         javaMailSender.setHost("smtp.gmail.com");
-        javaMailSender.setPort(25);
+        javaMailSender.setPort(587);
         return javaMailSender;
     }
 	
@@ -37,7 +35,7 @@ public class EmailUtils {
 			MimeMessageHelper helper = new MimeMessageHelper(mimeMessage, true);
 			helper.setTo(to);
 			helper.setSubject(subject);
-			helper.setText(body);
+			helper.setText(body,true);
 			mailSender.send(helper.getMimeMessage());
 			isSent = true;
 		} catch (MessagingException e) {
