@@ -26,7 +26,7 @@ import com.ci.utils.UserUtils;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class UserResource {
 
 	@Autowired

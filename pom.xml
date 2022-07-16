@@ -98,6 +98,11 @@
 
 		<!-- <dependency> <groupId>org.drools</groupId> <artifactId>drools-compiler</artifactId> 
 			<version>6.0.1.Final</version> </dependency> -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-configuration-processor</artifactId>
+			<optional>true</optional>
+		</dependency>
 	</dependencies>
 
 	<build>

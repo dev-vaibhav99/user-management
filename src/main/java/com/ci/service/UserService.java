@@ -23,6 +23,8 @@ public interface UserService {
 	
 	public String readEmailToUnlockAccount(Users users);
 	
+	public String readEmailToForgotPassword(Users users);
+	
 	public String generateRandomPassword(int length);
 
 	public ResponseEntity<List<UserResponseDto>> getAllUsers();

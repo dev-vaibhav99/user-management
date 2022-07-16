@@ -13,7 +13,7 @@ import com.ci.service.CityService;
 
 @RestController
 @RequestMapping("/city")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CityResource {
 	@Autowired
 	CityService cityService;

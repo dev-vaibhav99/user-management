@@ -11,7 +11,7 @@ import com.ci.bindings.UserInfo;
 import com.ci.service.DetermineEligibilityService;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class DetermineEligibilityResource {
 	
 	@Autowired

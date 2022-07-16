@@ -15,7 +15,6 @@ import lombok.Data;
 @Data
 public class EmailUtils {
 
-	
 	@Autowired
 	private JavaMailSender mailSender;
 

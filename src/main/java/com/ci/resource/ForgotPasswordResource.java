@@ -11,7 +11,7 @@ import com.ci.service.UserService;
 
 @RestController
 @RequestMapping("/forgot")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class ForgotPasswordResource {
 
 	@Autowired
@@ -21,7 +21,7 @@ public class ForgotPasswordResource {
 	public String forgotPassword(@PathVariable("email") String email) {
 		Boolean forgotPassword = userService.forgotPassword(email);
 		if(forgotPassword) {
-			return "Successfully sent email to your Email Id";
+			return "Please check your mail to recover your password";
 		} else {
 			return "Invalid Email Id";
 		}

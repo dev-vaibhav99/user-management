@@ -27,7 +27,7 @@ public class ApplicantResponseDto {
 	private String lastName;
 	private String email;
 	private Long contact;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dob;
 	private String gender;
 	private String password;

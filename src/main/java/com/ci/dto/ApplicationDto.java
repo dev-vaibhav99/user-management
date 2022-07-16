@@ -20,7 +20,7 @@ public class ApplicationDto {
 	private String password;
 	private Long ssnNo;
 	private Long contact;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dob;
 	private String gender;
 }

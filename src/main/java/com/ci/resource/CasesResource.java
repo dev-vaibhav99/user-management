@@ -13,7 +13,7 @@ import com.ci.service.CaseService;
 
 @RestController
 @RequestMapping("/cases")
-@CrossOrigin("*")
+@CrossOrigin(origins = "*")
 public class CasesResource {
 
 	@Autowired
