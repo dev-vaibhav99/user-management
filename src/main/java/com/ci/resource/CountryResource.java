@@ -12,8 +12,7 @@ import com.ci.service.CountryService;
 
 @RestController
 @RequestMapping("/country")
-@CrossOrigin(origins = "http://localhost:4200")
-
+@CrossOrigin("*")
 public class CountryResource {
 
 	@Autowired

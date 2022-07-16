@@ -3,6 +3,7 @@ package com.ci.resource;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -12,6 +13,7 @@ import com.ci.service.StateService;
 
 @RestController
 @RequestMapping("/state")
+@CrossOrigin("*")
 public class StateResource {
 
 	@Autowired

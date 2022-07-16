@@ -26,7 +26,7 @@ import com.ci.utils.UserUtils;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin("*")
 public class UserResource {
 
 	@Autowired

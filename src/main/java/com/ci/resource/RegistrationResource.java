@@ -13,8 +13,7 @@ import com.ci.service.UserService;
 
 @RestController
 @RequestMapping("/registration")
-@CrossOrigin(origins = "http://localhost:4200")
-
+@CrossOrigin("*")
 public class RegistrationResource {
 
 	@Autowired
