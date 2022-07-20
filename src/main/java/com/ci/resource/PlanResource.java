@@ -21,7 +21,7 @@ import com.ci.service.PlanService;
 
 @RestController
 @RequestMapping("/plan")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class PlanResource {
 
 	@Autowired

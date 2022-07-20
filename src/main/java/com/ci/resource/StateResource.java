@@ -13,7 +13,7 @@ import com.ci.service.StateService;
 
 @RestController
 @RequestMapping("/state")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class StateResource {
 
 	@Autowired

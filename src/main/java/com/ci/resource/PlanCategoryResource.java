@@ -12,7 +12,7 @@ import com.ci.service.PlanCategoryService;
 
 @RestController
 @RequestMapping("/planCategory")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class PlanCategoryResource {
 
 	@Autowired

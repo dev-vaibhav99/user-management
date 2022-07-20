@@ -15,7 +15,7 @@ import com.ci.service.DataCollectionService;
 
 @RestController
 @RequestMapping("/dataCollection")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class DataCollectionResource {
 
 	@Autowired

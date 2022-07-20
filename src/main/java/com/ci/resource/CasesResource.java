@@ -20,7 +20,7 @@ import com.ci.service.CaseService;
 
 @RestController
 @RequestMapping("/cases")
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = "http://localhost:4200/")
 public class CasesResource {
 
 	@Autowired
