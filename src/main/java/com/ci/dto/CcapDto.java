@@ -12,13 +12,14 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 public class CcapDto {
-
-	private Long caseID;
+	
+	private Long id;
+	private Long caseId;
 	private String firstName;
 	private String lastName;
 	private String childName;
 	private String childGender;
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date childDOB;
-	private Long childSsnAadharNo;
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date childDob;
+	private Long childSsnNo;
 }

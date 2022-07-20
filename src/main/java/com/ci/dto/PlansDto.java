@@ -18,9 +18,9 @@ public class PlansDto {
 	private String planName;
 	private String planDescription;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date planStartDate;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date planEndDate;
-	
+//	private CaseDto caseDto;
 }

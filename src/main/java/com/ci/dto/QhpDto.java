@@ -7,13 +7,12 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class SnapDto {
+public class QhpDto {
 	
 	private Long id;
 	private Long caseId;
 	private String firstName;
 	private String lastName;
 	private Long income;
-	private Long otherIncome; 
 
 }

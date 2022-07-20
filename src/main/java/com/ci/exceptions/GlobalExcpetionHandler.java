@@ -13,7 +13,7 @@ public class GlobalExcpetionHandler {
 
 	@ExceptionHandler(value = { PlanNotFoundException.class, UserNotFoundException.class, NullObjectException.class,
 			NullPointerException.class, ApplicationNotFoundException.class, EmailAlreadyException.class,
-			PlanAlreadyRegistered.class, PasswordDoesNotMatchException.class })
+			PlanAlreadyRegistered.class, PasswordDoesNotMatchException.class, CaseNotFoundException.class })
 	public ResponseEntity<ExceptionResponseDto> handlerExceptionHandler(Exception ex, WebRequest request)
 			throws Exception {
 
@@ -56,6 +56,11 @@ public class GlobalExcpetionHandler {
 		else if(ex instanceof PasswordDoesNotMatchException) {
 			return new ResponseEntity<ExceptionResponseDto>(new ExceptionResponseDto(HttpStatus.BAD_REQUEST.value(),
 					HttpStatus.BAD_REQUEST, "PASSWORDS DOES NOT MATCH", new Date()), HttpStatus.BAD_REQUEST);
+		}
+		
+		else if(ex instanceof CaseNotFoundException) {
+			return new ResponseEntity<ExceptionResponseDto>(new ExceptionResponseDto(HttpStatus.BAD_REQUEST.value(),
+					HttpStatus.BAD_REQUEST, "CASE NOT AVAILABLE", new Date()), HttpStatus.BAD_REQUEST);
 		}
 		
 		else {

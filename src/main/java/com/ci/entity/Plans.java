@@ -14,22 +14,23 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
-
 public class Plans {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private String planName;
 	private String planDescription;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date planStartDate;
 	
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date planEndDate;
 	
+//	@ManyToOne(fetch = FetchType.LAZY)
+//	private Cases cases; 
 }

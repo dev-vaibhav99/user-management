@@ -31,7 +31,7 @@ public class Users {
 	private Long ssnNo;
 	private Long contact;
 	private String role;
-	@JsonFormat(pattern="yyyy-MM-dd")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private Date dob;
 	private String gender;
 	private Long countryId;

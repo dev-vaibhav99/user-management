@@ -9,7 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class RiwDto {
 
-	private Long caseID;
+	private Long id;
+	private Long caseId;
 	private String firstName;
 	private String lastName;
 	private String highestQualification;

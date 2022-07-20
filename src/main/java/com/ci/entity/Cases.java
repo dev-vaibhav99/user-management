@@ -21,24 +21,23 @@ import lombok.NoArgsConstructor;
 public class Cases {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
+	private Long arId;
 	private String firstName;
 	private String lastName;
 	private String email;
 	private String password;
-	private Long aadharNo;
+	private Long ssnNo;
 	private Long contact;
-	private String role;
-	private String dob;
+	
+	@JsonFormat(pattern="dd-MM-yyyy")
+	private Date dob;
 	private String gender;
+
 	
-	private String planName;
-	private String planDescription;
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date planStartDate;
-	@JsonFormat(pattern="dd/MM/yyyy")
-	private Date planEndDate;
-	
+//	@OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY, mappedBy = "cases")
+//	@JsonIgnore
+//	private Set<Plans> plans;
 }

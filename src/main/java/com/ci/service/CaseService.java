@@ -1,33 +1,19 @@
 package com.ci.service;
 
-import org.springframework.beans.factory.annotation.Autowired;
+import java.util.List;
+
 import org.springframework.stereotype.Service;
 
-import com.ci.dto.UserResponseDto;
+import com.ci.dto.ApplicationDto;
+import com.ci.dto.CaseDto;
 import com.ci.entity.Cases;
-import com.ci.repo.CaseRepo;
-import com.ci.repo.UserRepo;
 
 @Service
-public class CaseService {
+public interface CaseService {
 	
-	@Autowired
-	private CaseRepo caseRepo;
+	List<Cases> getAllCases();
 	
-	@Autowired
-	private UserRepo userRepo;
+	CaseDto createCase(ApplicationDto dto);
 	
-	@Autowired
-//	private PlanRepo planRepo;
-	
-	public Cases createCase(UserResponseDto usersDto) {
-//		Users userByFirstName = userRepo.findByFirstName(usersDto.getFirstName());
-////		Plans planByPlanName = planRepo.findPlanByPlanName(plansDto.getPlanName());
-//		ModelMapper mapper = new ModelMapper();
-//		Cases entity = mapper.map(userByFirstName, Cases.class);
-////		entity = mapper.map(planByPlanName, Cases.class);
-//		return caseRepo.save(entity);
-		return null;
-	}
-
+	CaseDto getCaseById(Long id);
 }

@@ -11,7 +11,7 @@ import com.ci.service.UserService;
 
 @RestController
 @RequestMapping("/forgot")
-@CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 public class ForgotPasswordResource {
 
 	@Autowired

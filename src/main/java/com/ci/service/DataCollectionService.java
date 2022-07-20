@@ -3,14 +3,19 @@ package com.ci.service;
 import org.springframework.stereotype.Service;
 
 import com.ci.dto.CcapDto;
+import com.ci.dto.QhpDto;
 import com.ci.dto.RiwDto;
 import com.ci.dto.SnapDto;
 @Service
 public interface DataCollectionService {
 
-	public SnapDto addIncomeDetails(SnapDto snapDto);
+	SnapDto addIncomeDetails(SnapDto snapDto);
 
-	public CcapDto addChildDetails(CcapDto ccapDto);
+	CcapDto addChildDetails(CcapDto ccapDto);
 
-	public RiwDto addEducationDetails(RiwDto riwDto);	
+	RiwDto addEducationDetails(RiwDto riwDto);
+	
+	QhpDto addDetailsForQhp(QhpDto qhpDto);
+	
+//	List<DataCollection> getAll();
 }

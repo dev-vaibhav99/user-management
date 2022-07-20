@@ -11,8 +11,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ci.dto.PlansDto;
+import com.ci.entity.PlanCategory;
 import com.ci.entity.Plans;
 import com.ci.exceptions.PlanNotFoundException;
+import com.ci.repo.PlanCategoryRepo;
 import com.ci.repo.PlanRepo;
 import com.ci.service.PlanService;
 
@@ -22,7 +24,11 @@ public class PlanServiceImpl implements PlanService {
 	@Autowired(required = false)
 	private PlanRepo planRepo;
 
-	public ModelMapper mapper = new ModelMapper();
+	@Autowired
+	private PlanCategoryRepo planCategoryRepo;
+
+	@Autowired
+	public ModelMapper mapper;
 
 	@Override
 	public ResponseEntity<PlansDto> registerPlan(PlansDto plansDto) {
@@ -31,6 +37,8 @@ public class PlanServiceImpl implements PlanService {
 		try {
 			planEntity = mapper.map(plansDto, Plans.class);
 			Plans registeredPlan = planRepo.save(planEntity);
+			PlanCategory planCategory = new PlanCategory(registeredPlan.getId(), registeredPlan.getPlanName());
+			planCategoryRepo.save(planCategory);
 			mapped = mapper.map(registeredPlan, PlansDto.class);
 			return ResponseEntity.ok().body(mapped);
 		} catch (Exception e) {
@@ -43,7 +51,7 @@ public class PlanServiceImpl implements PlanService {
 	public ResponseEntity<List<Plans>> getAllPlans() {
 		List<Plans> allPlans = planRepo.findAll();
 		if (allPlans.size() <= 0)
-			return ResponseEntity.status(HttpStatus.NOT_FOUND).build();
+			throw new PlanNotFoundException();
 		else
 			return ResponseEntity.of(Optional.of(allPlans));
 	}
@@ -54,6 +62,7 @@ public class PlanServiceImpl implements PlanService {
 			throw new PlanNotFoundException();
 		} else {
 			planRepo.deleteById(id);
+			planCategoryRepo.deleteById(id);
 			return ResponseEntity.status(HttpStatus.OK).body("PLAN DELETED SUCCESSFULLY");
 		}
 	}
@@ -77,6 +86,8 @@ public class PlanServiceImpl implements PlanService {
 			return ResponseEntity.ok().body(updatedPlan);
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
 	}
+	
+	
 
 	@Override
 	public boolean planAlreadyRegistered(PlansDto plansDto) {

@@ -1,11 +1,9 @@
 package com.ci.dto;
 
 import java.util.Date;
-import java.util.List;
 
 import org.springframework.stereotype.Component;
 
-import com.ci.entity.Users;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import lombok.AllArgsConstructor;
@@ -32,7 +30,6 @@ public class ApplicantResponseDto {
 	private String gender;
 	private String password;
 	private Long ssnNo;
-	private List<Users> plans;
 	
 	public ApplicantResponseDto(String msg){
 		this.msg = msg;

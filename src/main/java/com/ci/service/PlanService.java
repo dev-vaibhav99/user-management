@@ -6,20 +6,23 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import com.ci.dto.PlansDto;
+import com.ci.dto.SnapDto;
 import com.ci.entity.Plans;
 
 @Service
 public interface PlanService {
 
-	public ResponseEntity<PlansDto> registerPlan(PlansDto plansDto);
+	ResponseEntity<PlansDto> registerPlan(PlansDto plansDto);
 
-	public ResponseEntity<List<Plans>> getAllPlans();
+	ResponseEntity<List<Plans>> getAllPlans();
 
-	public ResponseEntity<?> deletePlanById(Long id);
+	ResponseEntity<?> deletePlanById(Long id);
 
-	public ResponseEntity<PlansDto> getPlanById(Long id);
+	ResponseEntity<PlansDto> getPlanById(Long id);
 
-	public ResponseEntity<PlansDto> updatePlan(PlansDto plansDto);
+	ResponseEntity<PlansDto> updatePlan(PlansDto plansDto);
 
-	public boolean planAlreadyRegistered(PlansDto plansDto);
+	boolean planAlreadyRegistered(PlansDto plansDto);
+	
+//	ResponseEntity<SnapDto> 
 }
