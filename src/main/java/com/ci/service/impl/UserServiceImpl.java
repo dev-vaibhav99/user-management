@@ -280,4 +280,13 @@ public class UserServiceImpl implements UserService {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).build();
 	}
 
+	@Override
+	public ResponseEntity<UserResponseDto> getByEmailAndPassword(String email, String password) {
+		Users findByEmailAndPassword = repo.findByEmailAndPassword(email, password);
+		if(repo.findByEmailAndPassword(email, password).equals(null)) {
+			throw new UserNotFoundException();
+		}
+		return new ResponseEntity<UserResponseDto>(mapper.map(findByEmailAndPassword, UserResponseDto.class), HttpStatus.OK);
+	}
+
 }

@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ci.dto.ApplicantResponseDto;
@@ -22,18 +23,17 @@ import com.ci.dto.UserResponseDto;
 import com.ci.exceptions.EmailAlreadyException;
 import com.ci.exceptions.PasswordDoesNotMatchException;
 import com.ci.service.UserService;
-import com.ci.utils.UserUtils;
 
 @RestController
 @RequestMapping("/user")
-@CrossOrigin(origins = "http://localhost:4200/")
+@CrossOrigin(origins = "*")
 public class UserResource {
 
 	@Autowired
-	UserService userService;
+	private UserService userService;
 	
-	@Autowired
-	UserUtils userUtils;
+//	@Autowired
+//	private UserUtils userUtils;
 	
 	// For Employees
 	@PostMapping("/login")
@@ -93,6 +93,11 @@ public class UserResource {
 	@GetMapping("/getApplication/{id}")
 	public ResponseEntity<ApplicationDto> getApplicationById(@PathVariable Long id) {
 		return userService.getApplicationById(id);
+	}
+	
+	@GetMapping("/getByEmailAndPassword")
+	public ResponseEntity<UserResponseDto> getByEmailAndPassword(@RequestParam String email, @RequestParam String password){
+		return userService.getByEmailAndPassword(email, password);
 	}
 
 	@GetMapping("/getAllApplications")

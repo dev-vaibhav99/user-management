@@ -48,4 +48,6 @@ public interface UserService {
 	public boolean findByEmail(String email);
 
 	public ResponseEntity<UpdatePassword> updatePassword(UpdatePassword updatePassword);
+
+	public ResponseEntity<UserResponseDto> getByEmailAndPassword(String email, String password);
 }
